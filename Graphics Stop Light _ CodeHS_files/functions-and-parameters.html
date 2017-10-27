@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Functions and Parameters | Introduction to Computer Science</title>
+        
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 2.6.7">
+        <meta name="author" content="CodeHS">
+        
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://codehs.gitbooks.io/introcs/content/gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="https://codehs.gitbooks.io/introcs/content/gitbook/images/favicon.ico" type="image/x-icon">
+        
+    <link rel="stylesheet" href="./style.css">
+    
+        
+        <link rel="stylesheet" href="./exercises.css">
+        
+    
+        
+        <link rel="stylesheet" href="./quizzes.css">
+        
+    
+        
+        <link rel="stylesheet" href="./plugin.css">
+        
+    
+        
+        <link rel="stylesheet" href="./website.css">
+        
+    
+        
+        <link rel="stylesheet" href="./search.css">
+        
+    
+        
+        <link rel="stylesheet" href="./website(1).css">
+        
+    
+    
+
+        
+    
+    
+    <link rel="next" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-return-values.html">
+    
+    
+    <link rel="prev" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/loop-and-a-half.html">
+    
+
+        
+    <style id="ace_editor">.ace_editor {position: relative;overflow: hidden;font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;font-size: 12px;line-height: normal;direction: ltr;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: text;min-width: 100%;}.ace_dragging, .ace_dragging * {cursor: move !important;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;}.ace_text-input.ace_composition {background: #f8f8f8;color: #111;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;/* setting pointer-events: auto; on node under the mouse, which changesduring scroll, will break mouse wheel scrolling in Safari */pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0px;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-moz-transition: opacity 0.18s;-webkit-transition: opacity 0.18s;-o-transition: opacity 0.18s;-ms-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;-moz-border-radius: 2px;-webkit-border-radius: 2px;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;display: block;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}/*** Dark version for fold widgets*/.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {-moz-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);-webkit-box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-moz-transition: opacity 0.4s ease 0.05s;-webkit-transition: opacity 0.4s ease 0.05s;-o-transition: opacity 0.4s ease 0.05s;-ms-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-moz-transition: opacity 0.05s ease 0.05s;-webkit-transition: opacity 0.05s ease 0.05s;-o-transition: opacity 0.05s ease 0.05s;-ms-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;border-radius: 2px;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style></head>
+    <body>
+        
+        
+    <div class="book without-animation with-summary font-size-2 font-family-1" data-level="2.14" data-chapter-title="Functions and Parameters" data-filepath="Basic-JavaScript-and-Graphics/functions-and-parameters.md" data-basepath=".." data-revision="Wed Feb 01 2017 22:29:17 GMT+0000 (UTC)" data-innerlanguage="">
+    
+
+<div class="book-summary"><div class="book-search" role="search"><input type="text" class="form-control" placeholder="Type to search"></div>
+    <nav role="navigation">
+        <ul class="summary">
+            
+            
+            
+                
+                <li>
+                    <a href="https://www.gitbook.com/book/codehs/introcs" target="blank" class="custom-link">Introduction to Computer Science</a>
+                </li>
+            
+            
+
+            
+            <li class="divider"></li>
+            
+
+            
+    
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                        Introduction
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1" data-path="Programming-with-Karel/index.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                        Programming with Karel
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1" data-path="Programming-with-Karel/introduction-to-prog-karel.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/introduction-to-prog-karel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                        Introduction to Programming with Karel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Programming-with-Karel/more-basic-karel.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/more-basic-karel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                        More Basic Karel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Programming-with-Karel/karel-cant-turn-right.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/karel-cant-turn-right.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                        Karel Can't Turn Right
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Programming-with-Karel/functions-in-karel.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/functions-in-karel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.4.</b>
+                        
+                        Functions in Karel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Programming-with-Karel/the-start-function.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/the-start-function.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.5.</b>
+                        
+                        The Start Function
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Programming-with-Karel/top-down-design-and-decomposition.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/top-down-design-and-decomposition.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.6.</b>
+                        
+                        Top Down Design and Decomposition in Karel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Programming-with-Karel/commenting-your-code.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/commenting-your-code.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.7.</b>
+                        
+                        Commenting Your Code
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Programming-with-Karel/superkarel.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/superkarel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.8.</b>
+                        
+                        SuperKarel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Programming-with-Karel/for-loops.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/for-loops.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.9.</b>
+                        
+                        For Loops
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Programming-with-Karel/if-statements.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/if-statements.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.10.</b>
+                        
+                        If Statements
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Programming-with-Karel/if-else-statements.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/if-else-statements.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.11.</b>
+                        
+                        If/Else Statements
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="Programming-with-Karel/while-loops-in-karel.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/while-loops-in-karel.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.12.</b>
+                        
+                        While Loops in Karel
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="Programming-with-Karel/control-structures-example.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/control-structures-example.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.13.</b>
+                        
+                        Control Structures Example
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Programming-with-Karel/how-to-indent-your-code.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Programming-with-Karel/how-to-indent-your-code.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.14.</b>
+                        
+                        How to Indent Your Code
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2" data-path="Basic-JavaScript-and-Graphics/index.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                        Basic JavaScript and Graphics
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1" data-path="Basic-JavaScript-and-Graphics/hello-world.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/hello-world.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                        Hello World
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Basic-JavaScript-and-Graphics/variables.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/variables.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                        Variables
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Basic-JavaScript-and-Graphics/user-input.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/user-input.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                        User Input
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Basic-JavaScript-and-Graphics/basic-math-in-javascript.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/basic-math-in-javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                        Basic Math in JavaScript
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Basic-JavaScript-and-Graphics/using-graphics-in-javascript.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/using-graphics-in-javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                        Using Graphics in JavaScript
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Basic-JavaScript-and-Graphics/booleans.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/booleans.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                        Booleans
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.7" data-path="Basic-JavaScript-and-Graphics/logical-operators.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/logical-operators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                        Logical Operators
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.8" data-path="Basic-JavaScript-and-Graphics/comparison-operators.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/comparison-operators.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                        Comparison Operators
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.9" data-path="Basic-JavaScript-and-Graphics/if-statements.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/if-statements.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                        If Statements
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.10" data-path="Basic-JavaScript-and-Graphics/for-loops-in-javascript.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/for-loops-in-javascript.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                        For Loops in JavaScript
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.11" data-path="Basic-JavaScript-and-Graphics/random-numbers.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/random-numbers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                        Random Numbers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.12" data-path="Basic-JavaScript-and-Graphics/while-loops.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/while-loops.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                        While Loops
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.13" data-path="Basic-JavaScript-and-Graphics/loop-and-a-half.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/loop-and-a-half.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.13.</b>
+                        
+                        Loop-and-a-Half
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.14" data-path="Basic-JavaScript-and-Graphics/functions-and-parameters.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.14.</b>
+                        
+                        Functions and Parameters
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.15" data-path="Basic-JavaScript-and-Graphics/functions-and-return-values.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-return-values.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.15.</b>
+                        
+                        Functions and Return Values
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="2.16" data-path="Basic-JavaScript-and-Graphics/local-variables-and-scope.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/local-variables-and-scope.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.16.</b>
+                        
+                        Local Variables and Scope
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3" data-path="Animation-and-Games/index.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                        Animation and Games
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1" data-path="Animation-and-Games/timers.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/timers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                        Timers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="Animation-and-Games/using-timers.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/using-timers.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                        Using Timers
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="Animation-and-Games/mouse-events-mouse-clicked.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/mouse-events-mouse-clicked.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                        Mouse Events: Mouse Clicked
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="Animation-and-Games/mouse-events-mouse-moved.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/mouse-events-mouse-moved.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                        Mouse Events: Mouse Moved
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="Animation-and-Games/drawing-lines.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/drawing-lines.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                        Drawing Lines
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="Animation-and-Games/key-events.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Animation-and-Games/key-events.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                        Key Events
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4" data-path="Basic-Data-Structures/index.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/index.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                        Basic Data Structures
+                    </a>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1" data-path="Basic-Data-Structures/intro-to-lists-arrays.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/intro-to-lists-arrays.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                        Intro to Lists/Arrays
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="Basic-Data-Structures/indexing-into-an-array.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/indexing-into-an-array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                        Indexing into an Array
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="Basic-Data-Structures/adding-removing-from-an-array.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/adding-removing-from-an-array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                        Adding/Removing from an Array
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="Basic-Data-Structures/array-length-and-looping.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/array-length-and-looping.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                        Array Length and Looping Through Arrays
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="Basic-Data-Structures/iterating-over-an-array.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/iterating-over-an-array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                        Iterating Over an Array
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.6" data-path="Basic-Data-Structures/finding-an-element-in-a-list.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/finding-an-element-in-a-list.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                        Finding an Element in a List
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.7" data-path="Basic-Data-Structures/removing-an-element-from-an-array.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/removing-an-element-from-an-array.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                        Removing an Element from an Array
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.8" data-path="Basic-Data-Structures/intro-to-objects-maps.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/intro-to-objects-maps.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                        Intro to Objects/Maps
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.9" data-path="Basic-Data-Structures/using-objects.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/using-objects.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                        Using Objects
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.10" data-path="Basic-Data-Structures/intro-to-sets.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/intro-to-sets.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                        Intro to Sets
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.11" data-path="Basic-Data-Structures/intro-to-grids.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/intro-to-grids.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.11.</b>
+                        
+                        Intro to Grids
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter " data-level="4.12" data-path="Basic-Data-Structures/looping-over-a-grid.html">
+            
+                
+                    <a href="https://codehs.gitbooks.io/introcs/content/Basic-Data-Structures/looping-over-a-grid.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.12.</b>
+                        
+                        Looping over a Grid
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+            
+            <li class="divider"></li>
+            <li>
+                <a href="https://www.gitbook.com/" target="blank" class="gitbook-link">
+                    Published with GitBook
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header" role="navigation">
+    <!-- Actions Left -->
+    
+
+    <!-- Title -->
+    <a class="btn pull-left js-toolbar-action" aria-label="" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-align-justify"></i></a><a class="btn pull-left js-toolbar-action" aria-label="Search" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-search"></i></a><div class="dropdown pull-right  js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Share" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-share-alt"></i></a><div class="dropdown-menu dropdown-left"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-5 ">Facebook</button><button class="button size-5 ">Google+</button><button class="button size-5 ">Twitter</button><button class="button size-5 ">Weibo</button><button class="button size-5 ">Instapaper</button></div></div></div><a class="btn pull-right js-toolbar-action" aria-label="" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-facebook"></i></a><a class="btn pull-right js-toolbar-action" aria-label="" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-twitter"></i></a><div class="dropdown pull-left font-settings js-toolbar-action"><a class="btn toggle-dropdown" aria-label="Font Settings" href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-parameters.html#"><i class="fa fa-font"></i></a><div class="dropdown-menu dropdown-right"><div class="dropdown-caret"><span class="caret-outer"></span><span class="caret-inner"></span></div><div class="buttons"><button class="button size-2 font-reduce">A</button><button class="button size-2 font-enlarge">A</button></div><div class="buttons"><button class="button size-2 ">Serif</button><button class="button size-2 ">Sans</button></div><div class="buttons"><button class="button size-3 ">White</button><button class="button size-3 ">Sepia</button><button class="button size-3 ">Night</button></div></div></div><h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="https://codehs.gitbooks.io/introcs/content/">Introduction to Computer Science</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1" role="main">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-">
+                    
+                        <h1 id="functions-and-parameters">Functions and Parameters</h1>
+<p class="comments-section">Writing functions allows us to break our code into well-organized and reusable parts. But sometimes we may want to reuse a function
+with a slight change.<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="repetitive-actions">Repetitive Actions</h2>
+<p class="comments-section">Take a look at the following code:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">var x = 3;
+var addTenToX = 10 + x;
+println(addTenToX);
+
+var y = 21;
+var addTenToY = 10 + y;
+println(addTenToY);
+</code></pre>
+<p class="comments-section">Notice that the code contains some repetition. The process of adding 10 to a variable is the same whether we're
+adding <code>10 + 3</code> or <code>10 + 21</code>. In each case, we're adding 10.<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="parameters">Parameters</h2>
+<p class="comments-section">Recall that functions are like blocks of code that do a particular thing. We can write a function that prints out
+"hello" when called, or a function that draws a circle. But what if we want to create a function to add ten
+to a number? We can sketch out the function like so:<div class="comments-icon"><div class="marker">+</div></div></p>
+<p><img src="./parameters_addTen.png" alt="addTen function"></p>
+<p class="comments-section">We would expect an <code>addTen</code> function to add 10 to any number it is given. If we give it 3, the function will give us 13.
+Were we to give it 32, it would give us 42. This pattern can be generalized even more: if we give the function
+any number <code>x</code>, it will give us <code>x + 10</code> in return. The action that the <code>addTen</code> function takes is the same every time
+-- it adds 10 -- the only thing that changes is the number we give to the function. The number that we pass
+to the function is called a <strong>parameter</strong>.<div class="comments-icon"><div class="marker">+</div></div></p>
+<p><img src="./parameters_addTen_with_params.png" alt="addTen function"></p>
+<h2 id="defining-a-function-with-parameters">Defining a Function with Parameters</h2>
+<p class="comments-section">Let's write the <code>addTen</code> function in code:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">function addTen(x){
+    var xPlusTen = x + 10;
+    println(xPlusTen);
+}
+</code></pre>
+<p class="comments-section">Notice that there is an <code>x</code> that is being taken in and used by the function. This is the parameter. Its value will 
+be whatever the user decides to "pass" to the function. Also note that the <code>x</code> parameter can be used like a
+regular variable in the body of the function.<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="calling-a-function-with-parameters">Calling a Function with Parameters</h2>
+<p class="comments-section">Now that the <code>addTen</code> function is defined, it's time to call the function. Let's first add ten to the number 5:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">addTen(5);
+</code></pre>
+<p class="comments-section">This will result in <code>15</code> being printed to the console.<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">This works with variables as well. We can create a variable <code>y</code> that stores a number, then pass <code>y</code> to the 
+<code>addTen</code> function:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">var y = 115;
+addTen(y);
+</code></pre>
+<p class="comments-section">This will print <code>125</code> to the console.<div class="comments-icon"><div class="marker">+</div></div></p>
+<h2 id="multiple-parameters">Multiple Parameters</h2>
+<p class="comments-section">It's often helpful to write functions that can take in more than one parameter. For example, if we were to write
+a generic <code>add</code> function, we would want to be able to input two numbers. To include more than one parameter, you
+can simply write more than one parameter, separated by a comma. The code below takes in two numbers, represented
+by <code>x</code> and <code>y</code>, and adds them:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">function add(x, y){
+    var sum = x + y;
+    println(sum);
+}
+</code></pre>
+<p class="comments-section">We call the function in a similar manner. If we give the function the following calls:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">add(10, 90);
+add(635, 1000);
+var first = 72;
+var second = 14;
+add(first, second);
+</code></pre>
+<p class="comments-section">then the program will print the following to the console:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">100
+1635
+86
+</code></pre>
+<h2 id="why-use-parameters">Why Use Parameters?</h2>
+<p class="comments-section">Using parameters allows us to write code that is flexible and reusable. Writing a function is like telling the
+program to do something (add two numbers or draw a rectangle on the canvas). Parameters are like giving that
+function specific instructions ("I want to add 3 and 7" or "I want my rectangle to be red").<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">Functions can also take in multiple parameters. If you wanted to draw several circles, you'd likely want them
+to be different sizes, colors, and in different places. If each of these pieces of information was hard-coded into 
+the function, you would need a separate function for each circle!<div class="comments-icon"><div class="marker">+</div></div></p>
+<p class="comments-section">Using parameters allows you to write one <code>drawCircle</code> function that can be used to draw many different
+circles:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">function drawCircle(color, radius, xPos, yPos){
+    var circ = new Circle(radius);
+    circ.setPosition(xPos, yPos);
+    circ.setColor(color);
+    add(circ);
+}
+</code></pre>
+<p class="comments-section">To draw a green circle of radius 12 at position 50, 75:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">drawCircle(Color.green, 12, 50, 75);
+</code></pre>
+<p><img src="./parameters_circle_1.png" alt="drawCircle function"></p>
+<h2 id="an-important-note">An Important Note!</h2>
+<p class="comments-section">It's very important to pass parameters to functions in the proper order. Using the <code>drawCircle</code> example above, you
+may know that <code>Color.green</code> is the name of the color and that you want the radius to be <code>12</code>, but the computer
+does not know. The way that the computer finds out which parameter is which is by the order in which your code
+passes the parameters into the function. For example, if you wrote:<div class="comments-icon"><div class="marker">+</div></div></p>
+<pre><code class="lang-undefined">drawCircle(Color.green, 50, 12, 75);
+</code></pre>
+<p class="comments-section">you would end up with a green circle of radius 50 at position <code>(75, 12)</code>. That's quite different from the circle
+above, even though it is using the same numbers!<div class="comments-icon"><div class="marker">+</div></div></p>
+<p><img src="./parameters_circle_2.png" alt="drawCircle function"></p>
+<p class="comments-section">In conclusion, order matters when you are using parameters.<div class="comments-icon"><div class="marker">+</div></div></p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/loop-and-a-half.html" class="navigation navigation-prev " aria-label="Previous page: Loop-and-a-Half"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="https://codehs.gitbooks.io/introcs/content/Basic-JavaScript-and-Graphics/functions-and-return-values.html" class="navigation navigation-next " aria-label="Next page: Functions and Return Values" style="margin-right: 0px;"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script async="" src="./analytics.js"></script><script src="./app.js"></script>
+
+    
+    <script src="./ace.js"></script>
+    
+
+    
+    <script src="./theme-tomorrow.js"></script>
+    
+
+    
+    <script src="./mode-javascript.js"></script>
+    
+
+    
+    <script src="./exercises.js"></script>
+    
+
+    
+    <script src="./quizzes.js"></script>
+    
+
+    
+    <script src="./plugin.js"></script>
+    
+
+    
+    <script src="./lunr.min.js"></script>
+    
+
+    
+    <script src="./search.js"></script>
+    
+
+    
+    <script src="./buttons.js"></script>
+    
+
+    
+    <script src="./buttons(1).js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"exercises":{},"quizzes":{},"comment":{"highlightCommented":true},"autocover":{},"highlight":{},"search":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2}};
+    gitbook.start(config);
+});
+</script>
+
+        <script src="./jsrepl.js" id="jsrepl-script"></script>
+    
+<div><script style="display: none;" type="application/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57505611-7', 'auto', {name: 'microcdn'});
+  ga('microcdn.send', 'pageview');
+
+  var _cdn_prev_loc = window.location.pathname;
+  window.setInterval(function () {
+    if (window.location.pathname !== _cdn_prev_loc) {
+      _cdn_prev_loc = window.location.pathname;
+      ga('microcdn.send', 'pageview');
+    }
+  }, 100);
+
+</script></div>
+
+    
+
+</body></html>
